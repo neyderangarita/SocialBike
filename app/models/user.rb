@@ -1,5 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
     
-    has_many :book
+    has_many :books
+    
+    has_many :events
+    
+    has_many :assistants
+    
 end
