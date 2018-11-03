@@ -3,6 +3,17 @@ Rails.application.routes.draw do
   
 resources :users
 
+resources :assistants
 
+
+resources :conditions
+
+resources :events do 
+    resources :comments
+end
+
+resources :profiels
+
+resources :routes
   
 end

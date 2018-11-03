@@ -6,7 +6,7 @@ has_many :comments
 
 has_many :assistants
 
-belongs_to :route
+has_one :route
 
 end
 
