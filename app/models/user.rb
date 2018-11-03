@@ -5,8 +5,8 @@ class User < ApplicationRecord
     
     has_many :comments
     
-    has_many :events
-    
     has_many :assistants
+    
+    has_and_belongs_to_many :events
     
 end
