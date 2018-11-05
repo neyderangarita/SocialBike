@@ -1,4 +1,4 @@
-class Comment < ApplicationRecordrail
+class Comment < ApplicationRecord
 
   belongs_to :user
   
