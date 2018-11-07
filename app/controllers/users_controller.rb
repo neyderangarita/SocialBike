@@ -14,8 +14,6 @@ class UsersController < ApplicationController
         json_response(response, :created)
     end
     
-    
-
     # Confirmar asistencia de usuario a evento
     def assist
         event = Event.find(params[:idEvent])

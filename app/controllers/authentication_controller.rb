@@ -9,8 +9,8 @@ class AuthenticationController < ApplicationController
   end
 
   private
-
   def auth_params
     params.permit(:username, :password)
   end
+  
 end

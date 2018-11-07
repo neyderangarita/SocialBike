@@ -6,8 +6,10 @@ class CommentsController < ApplicationController
         render json: comment, status: :created        
     end
     
+     # Consultar los comentarios de un evento 
     def index
         event = Event.find(params[:event_id])
         render json: event.comments, status: :ok
     end
+
 end
