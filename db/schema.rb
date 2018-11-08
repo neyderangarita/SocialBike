@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20181103175326) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assistants", force: :cascade do |t|
     t.boolean  "asiste"
     t.datetime "fecha"
@@ -21,13 +24,12 @@ ActiveRecord::Schema.define(version: 20181103175326) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "comment"
-    t.datetime "date"
     t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_comments_on_event_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["event_id"], name: "index_comments_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "conditions", force: :cascade do |t|
@@ -43,14 +45,14 @@ ActiveRecord::Schema.define(version: 20181103175326) do
     t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
   create_table "events_users", id: false, force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.index ["event_id"], name: "index_events_users_on_event_id"
-    t.index ["user_id"], name: "index_events_users_on_user_id"
+    t.index ["event_id"], name: "index_events_users_on_event_id", using: :btree
+    t.index ["user_id"], name: "index_events_users_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -60,7 +62,7 @@ ActiveRecord::Schema.define(version: 20181103175326) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "routes", force: :cascade do |t|
@@ -78,4 +80,6 @@ ActiveRecord::Schema.define(version: 20181103175326) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "profiles", "users"
 end
