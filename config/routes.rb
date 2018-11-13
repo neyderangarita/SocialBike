@@ -10,12 +10,11 @@ Rails.application.routes.draw do
     post 'events/:idEvent/assists/:id', to: 'users#assist'
     
     delete 'events/:idEvent/assists/:id', to: 'users#cancel_assist'
-    
+
+    get  'events/assists/:id', to: 'users#show_assist'
+       
     post 'auth/login', to: 'authentication#authenticate'
     
-    
-    post 'signup', to: 'users#create'
-    
-    
+    post 'signup', to: 'users#create'   
   
 end

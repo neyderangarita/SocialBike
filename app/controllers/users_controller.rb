@@ -19,6 +19,7 @@ class UsersController < ApplicationController
         event = Event.find(params[:idEvent])
         user = User.find(params[:id])
         event.users << user
+        
         render json: event.users, status: :ok    
     end
 
@@ -27,7 +28,13 @@ class UsersController < ApplicationController
         event = Event.find(params[:idEvent])
         user = User.find(params[:id])
         event.users.delete(user)
+
         render json: event.users, status: :ok  
+    end
+
+    def show_assist
+        events = Event.includes(:users).where(users: { id: params[:id]})
+        render json: events, status: :ok
     end
     
     private
