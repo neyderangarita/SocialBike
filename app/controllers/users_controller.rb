@@ -7,7 +7,6 @@ class UsersController < ApplicationController
         profile = Profile.new(profile_params)
         profile.user = user
         profile.save
-        
         # Retornar el mensaje de usuario creado exitosamente
         auth_token = AuthenticateUser.new(user.username, user.password).call
         response = { message: Message.account_created, auth_token: auth_token }
