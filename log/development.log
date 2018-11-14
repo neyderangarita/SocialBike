@@ -4068,3 +4068,1298 @@ Processing by PagesController#main as HTML
 Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5277929974492897470);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddTokenResetToUser (20181114203559)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.5ms)[0m  [1m[35mALTER TABLE "users" ADD "password_recovery_token" character varying[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "password_recovery_expiration" timestamp[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181114203559"]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5277929974492897470)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2018-11-14 16:15:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#main as HTML
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:15:27 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 14.5ms)
+
+
+  
+ActiveRecord::StatementInvalid (PG::UndefinedColumn: ERROR:  no existe la columna users.email
+LINE 1: SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LI...
+                                             ^
+: SELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2):
+  
+app/controllers/users_controller.rb:42:in `password_reset'
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:20:21 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (4.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 77ms (Views: 2.0ms | ActiveRecord: 14.5ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/users_controller.rb:61:in `password_reset'
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:21:22 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+Completed 200 OK in 39ms (Views: 3.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:23:08 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:23:09 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.5ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:26:02 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "e50598c403cd28dc2ad532490531986841942f5b6ead1c0c5214fdc1b4ed435c"], ["password_recovery_expiration", "2018-11-14 21:26:02.790789"], ["updated_at", "2018-11-14 21:26:02.791931"], ["id", 1]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 41ms (Views: 0.2ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:28:17 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 25ms (Views: 1.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:29:59 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "9f2356da5a9e9951917bb094db8a0e6323a90bcf66f91e1f34a7f8b91ad66147"], ["password_recovery_expiration", "2018-11-14 21:29:59.798151"], ["updated_at", "2018-11-14 21:29:59.799057"], ["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 27ms (Views: 0.2ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:30:33 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "32f99018e3def10c8b9747da7e870ade0b1e690f0ec561d484e9eda2bb813f71"], ["password_recovery_expiration", "2018-11-14 21:30:34.057203"], ["updated_at", "2018-11-14 21:30:34.058129"], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:30:40 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "7060ed809a8a38da52de44ec8293bea203c4e2feba5a22f01c45149fd7d3993d"], ["password_recovery_expiration", "2018-11-14 21:30:40.968444"], ["updated_at", "2018-11-14 21:30:40.969407"], ["id", 1]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 30ms (Views: 0.3ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:30:42 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "855c2ab5317ef186bbb3519f7a1276836ff03ef2ca5cb323ae5699fcc91f53b8"], ["password_recovery_expiration", "2018-11-14 21:30:42.112302"], ["updated_at", "2018-11-14 21:30:42.113028"], ["id", 1]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:31:10 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "e202e5bbdaaab8482a785d9a48b61df58fe93ddfbd515dc0cba956efda5554a8"], ["password_recovery_expiration", "2018-11-14 21:31:10.914972"], ["updated_at", "2018-11-14 21:31:10.915740"], ["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:31:28 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "265c52fcaa00095a2dc3dcc3f3432c63acd02ef48b2578895885426ecb95088a"], ["password_recovery_expiration", "2018-11-14 21:31:28.097097"], ["updated_at", "2018-11-14 21:31:28.097820"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:31:45 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "b9484c24ab3a80e0e618b8adca4f1f8d34dc1485f581efcc60a1f62f969817bb"], ["password_recovery_expiration", "2018-11-14 21:31:45.748552"], ["updated_at", "2018-11-14 21:31:45.749247"], ["id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 33ms (Views: 0.2ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:31:46 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "ac8e38694e35a4110cc2b7592b2b0bccc4fa36036652396ee76c0f20510d084d"], ["password_recovery_expiration", "2018-11-14 21:31:46.606591"], ["updated_at", "2018-11-14 21:31:46.607423"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:33:17 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+Completed 422 Unprocessable Entity in 10ms (Views: 0.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:33:34 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "1305ea638d65910ae565d1bb6ac2987c51d4c84645c59899ec51d3a362ade673"], ["password_recovery_expiration", "2018-11-14 21:33:34.329996"], ["updated_at", "2018-11-14 21:33:34.331291"], ["id", 1]]
+  [1m[35m (251.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 383ms (Views: 0.2ms | ActiveRecord: 261.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:34:44 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (2.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "457e7830d3cdd890fb99c0d46ed65bd10476b0adc7ff451f85093a301daae328"], ["password_recovery_expiration", "2018-11-14 21:34:44.447424"], ["updated_at", "2018-11-14 21:34:44.448729"], ["id", 1]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 54ms (Views: 0.2ms | ActiveRecord: 11.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:38:52 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "f80ee6dfdb34e2ab0c2956bf90af650dd704ab8b491da2b7db7413fdb3d3c2ba"], ["password_recovery_expiration", "2018-11-14 21:38:52.753262"], ["updated_at", "2018-11-14 21:38:52.755378"], ["id", 1]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 48ms (Views: 0.2ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:43:02 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (1.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "5fb943f8f6b9c90aafcefab6bff61a6a562f371569a9e71574b65a1dd71162c0"], ["password_recovery_expiration", "2018-11-14 21:43:02.885140"], ["updated_at", "2018-11-14 21:43:02.893667"], ["id", 1]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 328ms (Views: 1.5ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 16:44:19 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "c7673497c2ad883c48c0d7936c50f93e5b3c8a2281a8dd91591a9ac05641c84a"], ["password_recovery_expiration", "2018-11-14 21:44:19.226868"], ["updated_at", "2018-11-14 21:44:19.227753"], ["id", 1]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:21:05 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `user_email' for #<UsersController:0x00007ffbb82609b0>
+Did you mean?  @user_email):
+  
+app/controllers/users_controller.rb:42:in `password_reset'
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:21:47 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (9.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "957cbc05165ced2f94595e83bb08e359b1c6d7c4e233841bb95d87f727f46871"], ["password_recovery_expiration", "2018-11-14 22:21:47.225475"], ["updated_at", "2018-11-14 22:21:47.227918"], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 106ms (Views: 0.2ms | ActiveRecord: 16.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:22:46 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "25d4ad0692322e5928da71f177238979c0a353fd231b0009730d5686d82d6101"], ["password_recovery_expiration", "2018-11-14 22:22:46.315745"], ["updated_at", "2018-11-14 22:22:46.316691"], ["id", 1]]
+  [1m[35m (344.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 369ms (Views: 0.1ms | ActiveRecord: 345.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:24:28 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "357957102ff5c52ece6e93273558d41ca0f0922a563b6a6fe1a8bec8b4d47242"], ["password_recovery_expiration", "2018-11-14 22:24:28.640325"], ["updated_at", "2018-11-14 22:24:28.641325"], ["id", 1]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 34ms (Views: 0.6ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:24:42 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.9ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "feb54689877b50fe222abbb7673a0fcd17d3d27297930471592220080e54a17e"], ["password_recovery_expiration", "2018-11-14 22:24:42.973178"], ["updated_at", "2018-11-14 22:24:42.974030"], ["id", 1]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:25:42 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (1.0ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "74e01882cea2f3e92e6586cb1f722fb196d8f5be639011cded57718f9235300a"], ["password_recovery_expiration", "2018-11-14 22:25:42.945498"], ["updated_at", "2018-11-14 22:25:42.948028"], ["id", 1]]
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 200ms (Views: 0.1ms | ActiveRecord: 22.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:30:05 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "6b2a5ca4f43b6b9d6481403e169362ae5f8be2ef872e5b849a3563c29db7fb08"], ["password_recovery_expiration", "2018-11-14 22:30:15.590508"], ["updated_at", "2018-11-14 22:30:15.591522"], ["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 42ms (Views: 3.6ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:33:23 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "317faba2fe35d70dfc9c212906a2b228899985f6e5f9f88611c94c886ef4145a"], ["password_recovery_expiration", "2018-11-14 22:33:24.034510"], ["updated_at", "2018-11-14 22:33:24.035553"], ["id", 1]]
+  [1m[35m (4.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 43ms (Views: 8.7ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:34:09 -0500
+  
+SyntaxError (/home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:61: formal argument cannot be an instance variable
+...       User.find_each do |@user|
+...                          ^~~~~):
+  
+app/controllers/users_controller.rb:61: formal argument cannot be an instance variable
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:35:28 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "cd356891ac004b8a8e45bc3871c405a2f9336fbf6f41daf223e6209586273be1"], ["password_recovery_expiration", "2018-11-14 22:35:28.707121"], ["updated_at", "2018-11-14 22:35:28.707956"], ["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 29ms (Views: 0.2ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:38:55 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "28707930e7fc8cca0f395f89335543ab42fe37b7a2614d639688f2c42d9e4649"], ["password_recovery_expiration", "2018-11-14 22:38:55.087308"], ["updated_at", "2018-11-14 22:38:55.088152"], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 35ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:38:55 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "399644da7a25ec30cc594dcad34540bda722f68d80b505533051b7bc63eeb021"], ["password_recovery_expiration", "2018-11-14 22:38:55.898461"], ["updated_at", "2018-11-14 22:38:55.899162"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 17ms (Views: 0.2ms | ActiveRecord: 10.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:38:56 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "8eac8c35ea43ed9665b60f9fae3bc2d1d78d5083427affe827036f0f95e6e6a0"], ["password_recovery_expiration", "2018-11-14 22:38:56.615081"], ["updated_at", "2018-11-14 22:38:56.617049"], ["id", 1]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 19ms (Views: 0.2ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:39:02 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "70cd12521f061cb385c862f2e11b36fad93028f4ea7d9e3f3fc70486de8b138b"], ["password_recovery_expiration", "2018-11-14 22:39:02.983116"], ["updated_at", "2018-11-14 22:39:02.983926"], ["id", 1]]
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 57ms (Views: 0.2ms | ActiveRecord: 25.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:39:25 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.9ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "c4231adeef59a4246b6a32a62e91944d4f450b4ab98fe0249fe203a750ee41eb"], ["password_recovery_expiration", "2018-11-14 22:39:25.244485"], ["updated_at", "2018-11-14 22:39:25.246609"], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 41ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:39:26 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.6ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "83d446aeb85bd29b8f0b5e05ca627862317035d41670cf6e0696a7007ed9aa15"], ["password_recovery_expiration", "2018-11-14 22:39:26.154648"], ["updated_at", "2018-11-14 22:39:26.155748"], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 23ms (Views: 0.2ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:39:43 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "efd4bc51af62a9555fc6303728292d1690dd578fdda0652d74a6e70f9529e93a"], ["password_recovery_expiration", "2018-11-14 22:39:43.321064"], ["updated_at", "2018-11-14 22:39:43.322427"], ["id", 1]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 38ms (Views: 0.2ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:40:05 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "8b6734b3a6a0b25c48aa1ba5bdcd52ca737ddbbf84752803e78bab45985035d9"], ["password_recovery_expiration", "2018-11-14 22:40:05.366690"], ["updated_at", "2018-11-14 22:40:05.367679"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 36ms (Views: 0.2ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:40:06 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "53c958bc5c3bb2a9332384cd1d8700741dbc1f17b53318eecb2ff9740a9923b6"], ["password_recovery_expiration", "2018-11-14 22:40:06.570870"], ["updated_at", "2018-11-14 22:40:06.571834"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:41:41 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "a543fb1056afdcb2b5d376c5107fbf45deeb5cef3da279c875bbf79e84b3011c"], ["password_recovery_expiration", "2018-11-14 22:41:41.702200"], ["updated_at", "2018-11-14 22:41:41.703216"], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 38ms (Views: 0.2ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:41:42 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (5.7ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "7a4c1ed155bbd5013f185014fadbc000ea0738e5729a5062879a499d1b12ed79"], ["password_recovery_expiration", "2018-11-14 22:41:42.510521"], ["updated_at", "2018-11-14 22:41:42.511494"], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:41:43 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "bf14dbd5f1f50440804d6a942a74fd9768ef7cf11bd5be8b094454cba5dcf069"], ["password_recovery_expiration", "2018-11-14 22:41:43.026769"], ["updated_at", "2018-11-14 22:41:43.027768"], ["id", 1]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:42:27 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "8b7d9a174613680dae6fe259ab9fa64d71f7fd2d9e0c0394a16489255da48144"], ["password_recovery_expiration", "2018-11-14 22:42:27.389431"], ["updated_at", "2018-11-14 22:42:27.390292"], ["id", 1]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 33ms (Views: 0.2ms | ActiveRecord: 6.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:42:28 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "296775ab4af61bf697067a35f35acd5e286f1ff5fd7f69b363bb4a9596b4f388"], ["password_recovery_expiration", "2018-11-14 22:42:28.197387"], ["updated_at", "2018-11-14 22:42:28.198318"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:42:51 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "5defda13ba4c64f79d34e146b439e9dbc936900330b6e76383b51f1980f866b6"], ["password_recovery_expiration", "2018-11-14 22:42:51.275230"], ["updated_at", "2018-11-14 22:42:51.276218"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:42:52 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "95eb341572a227ce70a49d0af5ccd20d7d4b1a8d54becce0e4c9c0337f23a151"], ["password_recovery_expiration", "2018-11-14 22:42:52.104595"], ["updated_at", "2018-11-14 22:42:52.105706"], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 11ms (Views: 0.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:42:52 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "e2592618d7ba14e854ceb35c45b21fe66f6bca11d9fb3c588db84289df8dc3b3"], ["password_recovery_expiration", "2018-11-14 22:42:52.699936"], ["updated_at", "2018-11-14 22:42:52.703467"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 19ms (Views: 0.2ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:07 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "41824bceb7d5e98cc9afe930e4185f7f6a0d7ef26c376550134a7032c02f9685"], ["password_recovery_expiration", "2018-11-14 22:43:07.813741"], ["updated_at", "2018-11-14 22:43:07.814647"], ["id", 1]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:08 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "1b750896661ff7417dbae921fa4046fbdb79ed96522a3397612653dc3daeeac6"], ["password_recovery_expiration", "2018-11-14 22:43:08.521995"], ["updated_at", "2018-11-14 22:43:08.522862"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:09 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "1aad4aba4ec66ea9cb9faae3172fd481f64d1d08db26ef487dd21380e56e04f9"], ["password_recovery_expiration", "2018-11-14 22:43:09.289469"], ["updated_at", "2018-11-14 22:43:09.290206"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 9.0ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:10 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "6fb2475b0a14f0f4edb2c64099f798cc63470e5f872dc442278bc82cb092829d"], ["password_recovery_expiration", "2018-11-14 22:43:10.173143"], ["updated_at", "2018-11-14 22:43:10.174028"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:11 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "161c26fdf5237d3435a599746e7610766244eddf6420006c3b53c52bb1308af2"], ["password_recovery_expiration", "2018-11-14 22:43:11.007932"], ["updated_at", "2018-11-14 22:43:11.008821"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:19 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "b9baf4ad6d04e21c5275b56515658c2c6a32f2f81b61ddc5a246747b76afa67d"], ["password_recovery_expiration", "2018-11-14 22:43:19.287512"], ["updated_at", "2018-11-14 22:43:19.288328"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 14ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:20 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "91c262915a75f3d63a5004d290135fb8fe03c943f8f44fd03778518a1401734a"], ["password_recovery_expiration", "2018-11-14 22:43:20.197260"], ["updated_at", "2018-11-14 22:43:20.198130"], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 10ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:20 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "105f716dc336883ff2c3d8084201cf1773741803433a9e9ff7be99cdc000751c"], ["password_recovery_expiration", "2018-11-14 22:43:20.760094"], ["updated_at", "2018-11-14 22:43:20.761191"], ["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 20ms (Views: 1.2ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:21 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "3dfbd394e25d331a78ddc544c6d54433c30ec61726e79dbb91d51ed4e974a279"], ["password_recovery_expiration", "2018-11-14 22:43:21.381647"], ["updated_at", "2018-11-14 22:43:21.382574"], ["id", 1]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 18ms (Views: 0.2ms | ActiveRecord: 10.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:21 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "96d97a8204253fecfc0129c0c2677e0b03a4233b675c04922a4fca9c9fb2b121"], ["password_recovery_expiration", "2018-11-14 22:43:21.831761"], ["updated_at", "2018-11-14 22:43:21.832662"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:22 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "1e196e5c7234a4169693931dd749cc7012743fc8d908f5ddc0fb711bcc639061"], ["password_recovery_expiration", "2018-11-14 22:43:22.444634"], ["updated_at", "2018-11-14 22:43:22.445575"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.6ms
+Completed 500 Internal Server Error in 17ms (Views: 0.5ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:43:23 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "c3ed73523f05b57f92fa7e49b692d8bbf4c4d7b4c36e89e431266a865eece834"], ["password_recovery_expiration", "2018-11-14 22:43:23.297515"], ["updated_at", "2018-11-14 22:43:23.298365"], ["id", 1]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.4ms
+Completed 500 Internal Server Error in 20ms (Views: 0.2ms | ActiveRecord: 11.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:44:21 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "d4d5f55988fd5f9e41a69bfc7f810660461f8f0b12a624ee0d1defdafe824050"], ["password_recovery_expiration", "2018-11-14 22:44:21.683526"], ["updated_at", "2018-11-14 22:44:21.684432"], ["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 10ms (Views: 0.2ms | ActiveRecord: 4.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:36 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "df5e4d68d00bdb876c75271bb0a6da5a3b3850868b4cd4fe16221227d5fb0e16"], ["password_recovery_expiration", "2018-11-14 22:45:36.602460"], ["updated_at", "2018-11-14 22:45:36.603444"], ["id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 35ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:37 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "5927f1aabfac67cc64bd32ca50e297884de550725bf5c91238156b3f39d4c086"], ["password_recovery_expiration", "2018-11-14 22:45:37.426131"], ["updated_at", "2018-11-14 22:45:37.427295"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:37 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "9633f35ab7c8551653ea1c12fd779249afbad140f04ac48f7754c4965a8e48c1"], ["password_recovery_expiration", "2018-11-14 22:45:37.988398"], ["updated_at", "2018-11-14 22:45:37.989386"], ["id", 1]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:38 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.4ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "4d0b83b0a281113778243a56a76666b826c32cd76fd9e047c1931117ebf1fe63"], ["password_recovery_expiration", "2018-11-14 22:45:38.570239"], ["updated_at", "2018-11-14 22:45:38.571732"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 18ms (Views: 0.3ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:39 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "61b680ca4d4486d2d06251b4e882df328b11bd39e6bce8a8a6a8f0dd8bc5ef8f"], ["password_recovery_expiration", "2018-11-14 22:45:39.141752"], ["updated_at", "2018-11-14 22:45:39.142718"], ["id", 1]]
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:39 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "17fdbf9493b2920c40dc82df8cfeb69397224d61e5a17dd3fda370f325ae84b6"], ["password_recovery_expiration", "2018-11-14 22:45:39.714483"], ["updated_at", "2018-11-14 22:45:39.715462"], ["id", 1]]
+  [1m[35m (8.0ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:45:40 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "8ef8d7ec25e6c4d20ff1a868584ef6c90fec3f155eb0a28d339c5f6149260366"], ["password_recovery_expiration", "2018-11-14 22:45:40.297193"], ["updated_at", "2018-11-14 22:45:40.298687"], ["id", 1]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 13ms (Views: 0.2ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:07 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "4e6204631ea4d722355ac19eafe9c56fdb93efce2b4a4ca319a4b627a6b26716"], ["password_recovery_expiration", "2018-11-14 22:47:07.356495"], ["updated_at", "2018-11-14 22:47:07.357508"], ["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 36ms (Views: 0.2ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:08 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "e8a42306df09adc132d1a8ae3cb4322725510e1203e147a776a955031d0345b5"], ["password_recovery_expiration", "2018-11-14 22:47:08.710757"], ["updated_at", "2018-11-14 22:47:08.711711"], ["id", 1]]
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 10ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:09 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "5392ea500941ccbd44687892c04065acd9539d310cd576611d3146c719978f25"], ["password_recovery_expiration", "2018-11-14 22:47:09.457390"], ["updated_at", "2018-11-14 22:47:09.458292"], ["id", 1]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 9.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:30 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "594f1c1b6c28fc540560ec66ed95816bd7b2f894d0645b270dfde34d58b71376"], ["password_recovery_expiration", "2018-11-14 22:47:30.141766"], ["updated_at", "2018-11-14 22:47:30.142964"], ["id", 1]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 32ms (Views: 0.2ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:30 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "cb73f643a3f462600ed50d0670f288165cae8739423ee98ac0d6366c466cce00"], ["password_recovery_expiration", "2018-11-14 22:47:30.861239"], ["updated_at", "2018-11-14 22:47:30.862111"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:41 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "741f08d3f80436784d1d5ce194004a2473cda07d5aa3ac7e10a43b34b002ffff"], ["password_recovery_expiration", "2018-11-14 22:47:41.869048"], ["updated_at", "2018-11-14 22:47:41.870439"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 1.1ms
+Completed 500 Internal Server Error in 24ms (Views: 1.2ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:47:42 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "dfb1f9422750d64672160cb3c9feba2b141aac8031565a93b4ddcdcd18ed1366"], ["password_recovery_expiration", "2018-11-14 22:47:42.935070"], ["updated_at", "2018-11-14 22:47:42.935985"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.9ms
+Completed 500 Internal Server Error in 18ms (Views: 0.6ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:30 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "54e1a19516273fe36c393965bc15ec3b08e0a9706174548809f41cf0bc138a09"], ["password_recovery_expiration", "2018-11-14 22:48:30.381521"], ["updated_at", "2018-11-14 22:48:30.382388"], ["id", 1]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.2ms
+Completed 500 Internal Server Error in 39ms (Views: 0.2ms | ActiveRecord: 8.3ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:31 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "466eaa0c89b5115545239f3efc24e1972ff59afc71b4ecaad6fd4fc88205f28c"], ["password_recovery_expiration", "2018-11-14 22:48:31.112843"], ["updated_at", "2018-11-14 22:48:31.113810"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:31 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "cfe863d5ed728a6325361820a508ad5a87c7d5ff60b6d8dfdd1bacb7649afdad"], ["password_recovery_expiration", "2018-11-14 22:48:31.634948"], ["updated_at", "2018-11-14 22:48:31.635906"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:31 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "46f2339202f934046ebc46ccd68b67ee73d34e19b891ef4ac1fc42efd1b1f6d3"], ["password_recovery_expiration", "2018-11-14 22:48:31.870542"], ["updated_at", "2018-11-14 22:48:31.871500"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:32 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "a957e3d15a732ed96a705cd91f04aab10d3c9c1c90b3c35a57b8c1925f49d20b"], ["password_recovery_expiration", "2018-11-14 22:48:32.451418"], ["updated_at", "2018-11-14 22:48:32.452475"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:32 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.6ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "fb80c669b3fc03e3ebc97e15cce8ff401acbf1305481850652f2c4a5514503b9"], ["password_recovery_expiration", "2018-11-14 22:48:32.957236"], ["updated_at", "2018-11-14 22:48:32.960099"], ["id", 1]]
+  [1m[35m (8.5ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.9ms
+Completed 500 Internal Server Error in 28ms (Views: 0.5ms | ActiveRecord: 10.8ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:33 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "c6d03af270922c5fcbb33fa42cc16c90730e66564359d7d0df796f10fe9feb90"], ["password_recovery_expiration", "2018-11-14 22:48:33.255044"], ["updated_at", "2018-11-14 22:48:33.256310"], ["id", 1]]
+  [1m[35m (8.3ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.6ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:33 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "6688b43f4b3ebf3e715ef3d8c15a9b91aaa655b1bf0ce7c130c59e1a28d0cd91"], ["password_recovery_expiration", "2018-11-14 22:48:33.786584"], ["updated_at", "2018-11-14 22:48:33.787579"], ["id", 1]]
+  [1m[35m (6.9ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:34 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "b0794707ad7ef238b48642ed34ae788c0363ab817a7fbf86e412503675a9aa70"], ["password_recovery_expiration", "2018-11-14 22:48:34.806043"], ["updated_at", "2018-11-14 22:48:34.807157"], ["id", 1]]
+  [1m[35m (8.2ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.1ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:35 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.3ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "0b4aadcbec0fd65de9a98e16ecde1ba992979ba0810074a6b01fa43ccdcc2ed6"], ["password_recovery_expiration", "2018-11-14 22:48:35.619973"], ["updated_at", "2018-11-14 22:48:35.620975"], ["id", 1]]
+  [1m[35m (8.4ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:36 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "a30eb6f9af185962d3f2e738b659d6b182190bec03a2b890599bc05f4c02f9c2"], ["password_recovery_expiration", "2018-11-14 22:48:36.386417"], ["updated_at", "2018-11-14 22:48:36.387492"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 16ms (Views: 0.2ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:37 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "b582e45dfc5e48d8d24953a9efbc56d87e9d528ce10b25fabf672acb6813187c"], ["password_recovery_expiration", "2018-11-14 22:48:37.105743"], ["updated_at", "2018-11-14 22:48:37.106747"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 8.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:37 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "5919c9343085e768f99ca26e19d3dc8190c701d3742bef049a5fef89892adf8e"], ["password_recovery_expiration", "2018-11-14 22:48:37.844160"], ["updated_at", "2018-11-14 22:48:37.845093"], ["id", 1]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+UserMailer#welcome_email: processed outbound mail in 0.3ms
+Completed 500 Internal Server Error in 15ms (Views: 0.2ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:48:53 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "b0eb2d114669b71832db134052cc4710344870964f9bc35d25c6837d89bfcc11"], ["password_recovery_expiration", "2018-11-14 22:48:53.862134"], ["updated_at", "2018-11-14 22:48:53.863078"], ["id", 1]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (1.4ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (2.9ms)
+UserMailer#welcome_email: processed outbound mail in 14.2ms
+Completed 500 Internal Server Error in 52ms (Views: 0.1ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:49:14 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.2ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "eaae03f3684aecab5447b1dace21f6ef38a5011644150d288d374566763fc040"], ["password_recovery_expiration", "2018-11-14 22:49:14.479257"], ["updated_at", "2018-11-14 22:49:14.480392"], ["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.4ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (1.6ms)
+UserMailer#welcome_email: processed outbound mail in 7.2ms
+Completed 500 Internal Server Error in 45ms (Views: 0.2ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/users/password_reset?email=neyder6101@gmail.com" for 127.0.0.1 at 2018-11-14 17:49:39 -0500
+Processing by UsersController#password_reset as */*
+  Parameters: {"email"=>"neyder6101@gmail.com"}
+  [1m[36mProfile Load (0.1ms)[0m  [1m[34mSELECT  "profiles".* FROM "profiles" WHERE "profiles"."email" = $1 LIMIT $2[0m  [["email", "neyder6101@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: You are passing an instance of ActiveRecord::Base to `find`. Please pass the id of the object by calling `.id`. (called from password_reset at /home/neyderangarita/Documentos/SocialBikeApi/SocialBike/app/controllers/users_controller.rb:43)
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_recovery_token" = $1, "password_recovery_expiration" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["password_recovery_token", "096b2496cb25f076f019940c54721b16c3dd942904c02a222c80be1c02edfab6"], ["password_recovery_expiration", "2018-11-14 22:49:40.078260"], ["updated_at", "2018-11-14 22:49:40.079209"], ["id", 1]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering user_mailer/welcome_email.html.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.html.erb within layouts/mailer (0.3ms)
+  Rendering user_mailer/welcome_email.text.erb within layouts/mailer
+  Rendered user_mailer/welcome_email.text.erb within layouts/mailer (0.2ms)
+UserMailer#welcome_email: processed outbound mail in 183.7ms
+Sent mail to neyder6101@gmail.com (14.5ms)
+Date: Wed, 14 Nov 2018 17:49:40 -0500
+From: hola@gmail.com
+To: neyder6101@gmail.com
+Message-ID: <5beca6844323b_7a513ff2e60369e894588@localhost.localdomain.mail>
+Subject: Welcome to My Awesome Site
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5beca68441b9a_7a513ff2e60369e8944e6";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5beca68441b9a_7a513ff2e60369e8944e6
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Welcome to example.com
+===============================================
+ 
+You have successfully signed up to example.com,
+ 
+Thanks for joining and have a great day!
+
+----==_mimepart_5beca68441b9a_7a513ff2e60369e8944e6
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Welcome to example.com,</h1>
+    <p>
+      You have successfully signed up to example.com,
+    </p>
+    <p>
+      To login to the site, just follow this.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
+  </body>
+</html>
+
+----==_mimepart_5beca68441b9a_7a513ff2e60369e8944e6--
+
+Completed 204 No Content in 230ms (ActiveRecord: 3.3ms)
+
+

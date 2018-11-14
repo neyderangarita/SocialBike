@@ -16,6 +16,8 @@ Rails.application.routes.draw do
        
     post 'auth/login', to: 'authentication#authenticate'
     
-    post 'signup', to: 'users#create'   
+    post 'signup', to: 'users#create'  
+    
+    post '/users/password_reset', to: 'users#password_reset'
   
 end
