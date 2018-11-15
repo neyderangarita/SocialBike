@@ -19,4 +19,11 @@ class EventsController < ApplicationController
         json_response events
     end
 
+    # Borra un evento creado
+    def destroy
+        event = Event.find(params[:id])
+        event.delete()
+        render json: event, status: :ok 
+    end
+
 end

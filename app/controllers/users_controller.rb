@@ -59,8 +59,9 @@ class UsersController < ApplicationController
             end
 
             begin
-                #UserMailer.with(user: @user).welcome_email.deliver_now
-                UserMailer.welcome_email().deliver
+                UserMailer.welcome_email.deliver_now
+                #UserMailer.welcome_email().deliver
+                #render json: @user, status: :ok
 
             rescue Exception => e
                 render json: {error: e}, status: :internal_server_error
