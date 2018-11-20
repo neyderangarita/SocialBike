@@ -5,6 +5,7 @@ class CreateRoutes < ActiveRecord::Migration[5.0]
       t.datetime :time
       t.string :description
 
+      t.belongs_to :event, index: true
       t.timestamps
     end
   end

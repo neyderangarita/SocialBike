@@ -6,7 +6,7 @@ has_many :comments
 
 belongs_to :user
 
-has_one :route
+has_one :route, foreign_key: 'event_id'
 
 end
 
