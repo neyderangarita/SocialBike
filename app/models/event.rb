@@ -1,12 +1,14 @@
 class Event < ApplicationRecord
 
-has_and_belongs_to_many :users
+    mount_uploader :picture, PictureUploader
 
-has_many :comments
+    has_and_belongs_to_many :users
 
-belongs_to :user
+    has_many :comments
 
-has_one :route, foreign_key: 'event_id'
+    belongs_to :user
+
+    has_one :route, foreign_key: 'event_id'
 
 end
 
