@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 20181220193041) do
     t.string   "map"
     t.datetime "time"
     t.string   "description"
+    t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "event_id"
     t.index ["event_id"], name: "index_routes_on_event_id", using: :btree
   end
 
