@@ -54,4 +54,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'rspec-rails', '~> 3.5'
 end
