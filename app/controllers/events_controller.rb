@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
     # Crear evento y retornar el evento creado
     def create
-        event = Event.create(params.permit(:user_id, :nombre, :sitio_encuentro, :fecha))
+        event = Event.create(params.permit(:user_id, :nombre, :sitio_encuentro, :fecha, :picture))
         render json: event, status: :created
     end
     
